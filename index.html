@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一碗臭臭鍋｜完整菜單</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red: #C1443A;
+    --orange: #F0A03C;
+    --teal: #6E9C9C;
+    --cream: #F5EDE0;
+    --brown: #4A3B32;
+    --white: #FFFFFF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:"Noto Sans TC",sans-serif;
+    background:var(--cream);
+    color:var(--brown);
+    padding-bottom:60px;
+  }
+  .hero{
+    position:relative;
+    background:linear-gradient(135deg,var(--red) 0%, #d65a45 55%, var(--orange) 100%);
+    padding:36px 20px 54px;
+    text-align:center;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    left:0;right:0;bottom:-1px;
+    height:40px;
+    background:var(--cream);
+    border-radius:50% 50% 0 0 / 100% 100% 0 0;
+    transform:scaleX(1.6);
+  }
+  .badge{
+    width:96px;height:96px;
+    border-radius:50%;
+    background:var(--cream);
+    border:3px solid var(--white);
+    display:flex;align-items:center;justify-content:center;
+    margin:0 auto 14px;
+    box-shadow:0 4px 14px rgba(0,0,0,.18);
+    overflow:hidden;
+  }
+  .badge img{ width:100%; height:100%; object-fit:cover; }
+  .hero .en{
+    color:rgba(255,255,255,.85);
+    font-size:11px;
+    letter-spacing:4px;
+    margin-top:4px;
+    text-transform:uppercase;
+  }
+  .hero .sub{
+    color:var(--cream);
+    font-size:13px;
+    margin-top:10px;
+    opacity:.95;
+  }
+  .tabs{
+    position:sticky; top:0; z-index:40;
+    display:flex;
+    max-width:520px;
+    margin:-18px auto 0;
+    padding:0 20px;
+  }
+  .tab-wrap{
+    display:flex; width:100%;
+    background:var(--white);
+    border-radius:999px;
+    padding:5px;
+    box-shadow:0 6px 18px rgba(74,59,50,.18);
+  }
+  .tab{
+    flex:1; text-align:center; padding:11px 0;
+    border-radius:999px; font-weight:700; font-size:15px;
+    color:var(--brown); cursor:pointer; transition:.2s; user-select:none;
+  }
+  .tab.active{
+    background:var(--red); color:var(--white);
+    box-shadow:0 3px 10px rgba(193,68,58,.35);
+  }
+  main{max-width:520px;margin:0 auto;padding:24px 18px 0;}
+  .notice{
+    background:var(--white);
+    border-left:5px solid var(--orange);
+    border-radius:10px;
+    padding:14px 16px;
+    font-size:13.5px;
+    line-height:1.7;
+    margin-bottom:22px;
+    box-shadow:0 2px 8px rgba(74,59,50,.06);
+  }
+  .notice b{color:var(--red);}
+  .section-title{
+    display:flex; align-items:center; gap:10px; margin:26px 0 12px;
+  }
+  .section-title .bar{ width:5px;height:20px; background:var(--red); border-radius:3px; }
+  .section-title h2{
+    font-family:"Noto Serif TC",serif; font-weight:900; font-size:19px; color:var(--brown);
+  }
+  .section-title small{
+    color:var(--teal); font-weight:700; font-size:11px; letter-spacing:1px;
+  }
+  .pot-grid{ display:grid; gap:10px; }
+  .pot{
+    background:var(--white); border-radius:14px; padding:13px 16px;
+    display:flex; justify-content:space-between; align-items:center;
+    box-shadow:0 2px 8px rgba(74,59,50,.06);
+    border:1px solid rgba(74,59,50,.06);
+  }
+  .pot.rec{
+    border:1.5px solid var(--orange);
+    background:linear-gradient(180deg,#fff 0%, #FFF8ED 100%);
+  }
+  .pot-name{
+    font-weight:700; font-size:14.5px; color:var(--brown);
+    display:flex; align-items:center; gap:6px;
+  }
+  .pot-name .tag{
+    font-size:10px; background:var(--orange); color:var(--white);
+    padding:2px 6px; border-radius:6px; font-weight:700; white-space:nowrap;
+  }
+  .pot-desc{ font-size:11px; color:#8a7a6c; margin-top:3px; }
+  .pot-price{
+    font-family:"Noto Serif TC",serif; font-weight:900; font-size:19px;
+    color:var(--red); white-space:nowrap; padding-left:12px;
+  }
+  .meat-table{
+    width:100%; border-collapse:separate; border-spacing:0;
+    background:var(--white); border-radius:14px; overflow:hidden;
+    box-shadow:0 2px 8px rgba(74,59,50,.06); font-size:13px;
+  }
+  .meat-table th{
+    background:var(--red); color:var(--white); padding:10px 8px;
+    font-weight:700; font-size:12.5px;
+  }
+  .meat-table td{
+    padding:10px 8px; text-align:center; border-top:1px solid #f0e8dc;
+  }
+  .meat-table td:first-child{ text-align:left; font-weight:700; }
+  .meat-table tr:nth-child(even) td{background:#FBF7F0;}
+  .addon-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .addon{
+    background:var(--white); border-radius:10px; padding:10px 12px;
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:13px; box-shadow:0 2px 6px rgba(74,59,50,.05);
+  }
+  .addon b{color:var(--red);font-family:"Noto Serif TC",serif;}
+  .highlight-strip{ display:flex; gap:8px; margin:20px 0; }
+  .highlight-strip div{
+    flex:1; background:var(--white); border-radius:12px; padding:14px 8px;
+    text-align:center; box-shadow:0 2px 8px rgba(74,59,50,.06);
+  }
+  .highlight-strip .ico{font-size:22px;display:block;margin-bottom:6px;}
+  .highlight-strip .txt{font-size:11.5px;font-weight:700;color:var(--brown);line-height:1.4;}
+  footer{
+    text-align:center; margin-top:36px; padding:20px;
+    color:#a08e7d; font-size:11.5px; line-height:1.8;
+  }
+  .stamp{
+    display:inline-block; border:1.5px solid var(--red); color:var(--red);
+    padding:3px 10px; border-radius:6px; font-size:11px; font-weight:700; margin-bottom:8px;
+  }
+  .hide{display:none;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge"><img src="logo_circle.png" alt="一碗臭臭鍋"></div>
+  <div class="en">TW STINKY POT · TAIWANESE HOT POT</div>
+  <div class="sub">中壢中央店｜完整菜單</div>
+</div>
+
+<div class="tabs">
+  <div class="tab-wrap">
+    <div class="tab active" onclick="showTab('dinein')">內用菜單</div>
+    <div class="tab" onclick="showTab('takeout')">外帶菜單</div>
+  </div>
+</div>
+
+<main>
+
+  <div id="dinein">
+    <div class="notice">
+      <b>內用計價方式：</b>鍋物本身<b>不含肉</b>，湯底＋自助吧為基本費用；肉品／海鮮採現切秤重，於「精選吃肉肉」區另外選購。內用享 <b>20種自助吧無限供應</b>（滷肉汁、白飯、麵類、葉菜類、爆米花、冷熱飲）。
+    </div>
+
+    <div class="highlight-strip">
+      <div><span class="ico">🥬</span><span class="txt">自助吧<br>無限供應</span></div>
+      <div><span class="ico">🍧</span><span class="txt">手作豆花<br>免費吃到飽</span></div>
+      <div><span class="ico">💰</span><span class="txt">平價百元<br>起</span></div>
+    </div>
+
+    <div class="section-title"><div class="bar"></div><h2>招牌</h2></div>
+    <div class="pot-grid">
+      <div class="pot"><div><div class="pot-name">招牌麻辣鍋</div></div><div class="pot-price">$160</div></div>
+      <div class="pot rec"><div><div class="pot-name">麻辣臭豆腐鍋 <span class="tag">推薦</span></div><div class="pot-desc">獨家熬煮四川麻辣｜辣香麻</div></div><div class="pot-price">$170</div></div>
+      <div class="pot"><div><div class="pot-name">金湯酸菜魚鍋</div><div class="pot-desc">特製花椒金湯｜麻香酸甜</div></div><div class="pot-price">$180</div></div>
+      <div class="pot rec"><div><div class="pot-name">麻辣牛奶鍋 <span class="tag">推薦</span></div></div><div class="pot-price">$170</div></div>
+    </div>
+
+    <div class="section-title"><div class="bar"></div><h2>經典</h2></div>
+    <div class="pot-grid">
+      <div class="pot rec"><div><div class="pot-name">招牌臭臭鍋 <span class="tag">推薦</span></div><div class="pot-desc">自然發酵臭豆腐｜特調沙茶湯頭</div></div><div class="pot-price">$150</div></div>
+      <div class="pot"><div><div class="pot-name">韓式泡菜鍋</div></div><div class="pot-price">$150</div></div>
+      <div class="pot rec"><div><div class="pot-name">澎湃海鮮鍋 <span class="tag">推薦</span></div></div><div class="pot-price">$210</div></div>
+      <div class="pot"><div><div class="pot-name">台式沙茶鍋</div></div><div class="pot-price">$130</div></div>
+    </div>
+
+    <div class="section-title"><div class="bar"></div><h2>風味</h2></div>
+    <div class="pot-grid">
+      <div class="pot rec"><div><div class="pot-name">東北酸白菜 <span class="tag">推薦</span></div><div class="pot-desc">自然發酵酸白菜｜酸香溫潤</div></div><div class="pot-price">$140</div></div>
+      <div class="pot"><div><div class="pot-name">泰式冬蔭功</div><div class="pot-desc">泰式酸辣加椰漿｜南洋風味</div></div><div class="pot-price">$160</div></div>
+      <div class="pot"><div><div class="pot-name">起司牛奶鍋</div></div><div class="pot-price">$160</div></div>
+      <div class="pot"><div><div class="pot-name">藥膳十全鍋</div></div><div class="pot-price">$140</div></div>
+    </div>
+
+    <div class="section-title"><div class="bar"></div><h2>原味</h2></div>
+    <div class="pot-grid">
+      <div class="pot rec"><div><div class="pot-name">日式原味鍋 <span class="tag">推薦</span></div></div><div class="pot-price">$130</div></div>
+      <div class="pot"><div><div class="pot-name">原味牛奶鍋</div><div class="pot-desc">純粹牛奶搭配雞骨高湯｜濃醇奶香</div></div><div class="pot-price">$150</div></div>
+      <div class="pot"><div><div class="pot-name">海鮮豆腐鍋</div></div><div class="pot-price">$170</div></div>
+      <div class="pot"><div><div class="pot-name">蔬菜素食鍋</div></div><div class="pot-price">$150</div></div>
+    </div>
+
+    <div class="section-title"><div class="bar"></div><h2>其他</h2></div>
+    <div class="pot-grid">
+      <div class="pot"><div><div class="pot-name">蒜頭雞湯鍋</div></div><div class="pot-price">$180</div></div>
+    </div>
+
+    <div class="section-title"><div class="bar"></div><h2>皮蛋系列</h2><small>NEW</small></div>
+    <div class="pot-grid">
+      <div class="pot rec"><div><div class="pot-name">麻辣皮蛋香鍋（微辣） <span class="tag">新品</span></div></div><div class="pot-price">$180</div></div>
+      <div class="pot rec"><div><div class="pot-name">臭臭皮蛋香鍋 <span class="tag">新品</span></div></div><div class="pot-price">$170</div></div>
+    </div>
+
+    <div class="section-title"><div class="bar"></div><h2>精選吃肉肉</h2><small>現切秤重</small></div>
+    <table class="meat-table">
+      <tr><th style="text-align:left">品項</th><th>4oz</th><th>9oz</th></tr>
+      <tr><td>大眾豬</td><td>$60</td><td>—</td></tr>
+      <tr><td>大眾牛</td><td>$70</td><td>—</td></tr>
+      <tr><td>梅花豬</td><td>$130</td><td>$260</td></tr>
+      <tr><td>嫩肩牛</td><td>$180</td><td>$350</td></tr>
+      <tr><td>羊肉卷</td><td>$160</td><td>$330</td></tr>
+      <tr><td>肥牛</td><td>$130</td><td>$260</td></tr>
+      <tr><td>豬五花</td><td>$120</td><td>$240</td></tr>
+    </table>
+
+    <div class="section-title"><div class="bar"></div><h2>超值優惠雙拼</h2><small>兩人同行必點</small></div>
+    <div class="pot-grid">
+      <div class="pot"><div><div class="pot-name">原肉雙拼大肉盤</div><div class="pot-desc">現切原肉五選二，約9oz</div></div><div class="pot-price">$269</div></div>
+      <div class="pot"><div><div class="pot-name">豪華海陸雙拼餐</div><div class="pot-desc">海鮮拼盤＋現切原肉4oz五選一</div></div><div class="pot-price">$369</div></div>
+    </div>
+
+    <div class="section-title"><div class="bar"></div><h2>生猛海鮮</h2></div>
+    <div class="pot-grid">
+      <div class="pot"><div><div class="pot-name">豪華海鮮拼盤</div><div class="pot-desc">白蝦／草蝦／鱸魚片／小花枝／蛤蠣／小干貝／小鮑魚</div></div><div class="pot-price">$250</div></div>
+      <div class="pot"><div><div class="pot-name">生猛小龍蝦</div><div class="pot-desc">凡點豪華海鮮拼盤＋$199即享一隻</div></div><div class="pot-price">$299</div></div>
+    </div>
+
+    <div class="section-title"><div class="bar"></div><h2>超殺銅板加購</h2></div>
+    <div class="addon-grid">
+      <div class="addon">白蝦<b>$60</b></div>
+      <div class="addon">草蝦<b>$100</b></div>
+      <div class="addon">鱸魚片<b>$90</b></div>
+      <div class="addon">小花枝<b>$70</b></div>
+      <div class="addon">蛤蠣<b>$50</b></div>
+      <div class="addon">小干貝<b>$60</b></div>
+      <div class="addon">小鮑魚<b>$60</b></div>
+      <div class="addon">魚餃<b>$30</b></div>
+      <div class="addon">蝦餃<b>$30</b></div>
+      <div class="addon">蛋餃<b>$30</b></div>
+      <div class="addon">老油條<b>$30</b></div>
+      <div class="addon">金針菇<b>$30</b></div>
+      <div class="addon">雞蛋<b>$15</b></div>
+      <div class="addon">生臭豆腐<b>$30</b></div>
+      <div class="addon">滷鴨血<b>$30</b></div>
+    </div>
+
+    <div class="notice" style="margin-top:20px;">
+      共鍋費：身高120公分以下 $50／120公分以上 $100（享自助吧，一鍋限兩人共鍋，共鍋費無法折抵單點）。如浪費將酌收食材費。
+    </div>
+  </div>
+
+  <div id="takeout" class="hide">
+    <div class="notice">
+      <b>外帶計價方式：</b>鍋物<b>已包含肉品</b>，一鍋一價，無需另外選購肉品。若要將豬肉替換為牛肉，需加價 <b>$10</b>。外帶<b>不含自助吧</b>，不提供內用鍋物及附餐打包服務。
+    </div>
+
+    <div class="section-title"><div class="bar"></div><h2>招牌</h2></div>
+    <div class="pot-grid">
+      <div class="pot"><div><div class="pot-name">麻辣鴨血鍋</div></div><div class="pot-price">$200</div></div>
+      <div class="pot rec"><div><div class="pot-name">麻辣臭豆腐鍋 <span class="tag">推薦</span></div></div><div class="pot-price">$210</div></div>
+      <div class="pot"><div><div class="pot-name">麻辣綜合鍋</div></div><div class="pot-price">$210</div></div>
+      <div class="pot"><div><div class="pot-name">金湯酸菜魚鍋</div></div><div class="pot-price">$200</div></div>
+      <div class="pot rec"><div><div class="pot-name">麻辣牛奶鍋 <span class="tag">推薦</span></div></div><div class="pot-price">$210</div></div>
+    </div>
+
+    <div class="section-title"><div class="bar"></div><h2>經典</h2></div>
+    <div class="pot-grid">
+      <div class="pot rec"><div><div class="pot-name">招牌臭臭鍋 <span class="tag">人氣王</span></div></div><div class="pot-price">$190</div></div>
+      <div class="pot"><div><div class="pot-name">韓式泡菜鍋</div></div><div class="pot-price">$190</div></div>
+      <div class="pot rec"><div><div class="pot-name">澎湃海鮮鍋 <span class="tag">人氣王</span></div></div><div class="pot-price">$210</div></div>
+      <div class="pot"><div><div class="pot-name">台式沙茶鍋</div></div><div class="pot-price">$170</div></div>
+    </div>
+
+    <div class="section-title"><div class="bar"></div><h2>風味</h2></div>
+    <div class="pot-grid">
+      <div class="pot"><div><div class="pot-name">東北酸菜白肉鍋</div></div><div class="pot-price">$180</div></div>
+      <div class="pot"><div><div class="pot-name">泰式冬蔭功鍋</div></div><div class="pot-price">$200</div></div>
+      <div class="pot"><div><div class="pot-name">起司牛奶鍋</div></div><div class="pot-price">$195</div></div>
+      <div class="pot rec"><div><div class="pot-name">藥膳鍋 <span class="tag">人氣必點</span></div></div><div class="pot-price">$180</div></div>
+    </div>
+
+    <div class="section-title"><div class="bar"></div><h2>原味</h2></div>
+    <div class="pot-grid">
+      <div class="pot"><div><div class="pot-name">日式原味鍋</div></div><div class="pot-price">$170</div></div>
+      <div class="pot"><div><div class="pot-name">原味牛奶鍋</div></div><div class="pot-price">$190</div></div>
+      <div class="pot"><div><div class="pot-name">海鮮豆腐鍋</div></div><div class="pot-price">$180</div></div>
+      <div class="pot"><div><div class="pot-name">蔬菜素食鍋</div></div><div class="pot-price">$160</div></div>
+    </div>
+
+    <div class="section-title"><div class="bar"></div><h2>其他</h2></div>
+    <div class="pot-grid">
+      <div class="pot"><div><div class="pot-name">蒜頭雞湯鍋</div></div><div class="pot-price">$210</div></div>
+    </div>
+
+    <div class="section-title"><div class="bar"></div><h2>皮蛋系列</h2><small>NEW</small></div>
+    <div class="pot-grid">
+      <div class="pot rec"><div><div class="pot-name">麻辣皮蛋香鍋（微辣） <span class="tag">新品</span></div></div><div class="pot-price">$200</div></div>
+      <div class="pot rec"><div><div class="pot-name">臭臭皮蛋香鍋 <span class="tag">新品</span></div></div><div class="pot-price">$190</div></div>
+    </div>
+
+    <div class="notice" style="margin-top:10px;font-size:12.5px;">火鍋內的肉品均為豬肉，換牛肉需加價 <b>$10</b>。</div>
+
+    <div class="section-title"><div class="bar"></div><h2>超殺銅板加點</h2></div>
+    <div class="addon-grid">
+      <div class="addon">白蝦<b>$60</b></div>
+      <div class="addon">草蝦<b>$100</b></div>
+      <div class="addon">鱸魚片<b>$90</b></div>
+      <div class="addon">小花枝<b>$70</b></div>
+      <div class="addon">蛤蠣<b>$50</b></div>
+      <div class="addon">小干貝<b>$60</b></div>
+      <div class="addon">小鮑魚<b>$60</b></div>
+      <div class="addon">魚餃<b>$30</b></div>
+      <div class="addon">蝦餃<b>$30</b></div>
+      <div class="addon">蛋餃<b>$30</b></div>
+      <div class="addon">老油條<b>$30</b></div>
+      <div class="addon">金針菇<b>$30</b></div>
+      <div class="addon">雞蛋<b>$15</b></div>
+      <div class="addon">生臭豆腐<b>$30</b></div>
+      <div class="addon">滷鴨血<b>$30</b></div>
+    </div>
+
+    <div class="section-title"><div class="bar"></div><h2>外帶加點</h2></div>
+    <div class="addon-grid">
+      <div class="addon">涼麵<b>$60</b></div>
+      <div class="addon">白飯<b>$20</b></div>
+      <div class="addon">王子麵<b>$20</b></div>
+      <div class="addon">冬粉<b>$20</b></div>
+      <div class="addon">滷肉飯<b>$50</b></div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="stamp">一碗臭臭鍋 · 中壢中央店</div><br>
+  TW STINKY POT｜臺式小火鍋<br>
+  內用／外帶價格計算方式不同，如有疑問歡迎詢問現場人員
+</footer>
+
+<script>
+function showTab(name){
+  document.getElementById('dinein').classList.toggle('hide', name!=='dinein');
+  document.getElementById('takeout').classList.toggle('hide', name!=='takeout');
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  event.target.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+
+</body>
+</html>
