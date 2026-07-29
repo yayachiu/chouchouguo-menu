@@ -126,6 +126,8 @@
     font-size:10px; background:var(--orange); color:var(--white);
     padding:2px 6px; border-radius:6px; font-weight:700; white-space:nowrap;
   }
+  .pot-name .tag.hot{ background:var(--red); }
+  .pot-name .tag.new{ background:var(--teal); }
   .pot-desc{ font-size:11px; color:#8a7a6c; margin-top:3px; }
   .pot-price{
     font-family:"Noto Serif TC",serif; font-weight:900; font-size:19px;
@@ -145,6 +147,7 @@
   }
   .meat-table td:first-child{ text-align:left; font-weight:700; }
   .meat-table tr:nth-child(even) td{background:#FBF7F0;}
+  .meat-table tr.special td{background:#FFF3DC;}
   .addon-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
   .addon{
     background:var(--white); border-radius:10px; padding:10px 12px;
@@ -189,7 +192,7 @@
 
   <div id="dinein">
     <div class="notice">
-      <b>內用計價方式：</b>鍋物本身<b>不含肉</b>，湯底＋自助吧為基本費用；肉品／海鮮採現切秤重，於「精選吃肉肉」區另外選購。內用享 <b>20種自助吧無限供應</b>（滷肉汁、白飯、麵類、葉菜類、爆米花、冷熱飲）。
+      <b>內用計價方式：</b>先選鍋 → 再選肉或海鮮（現切秤重）→ 櫃檯結帳。鍋物本身<b>不含肉</b>，肉品／海鮮於「精選吃肉肉」區另外選購。內用享 <b>20種自助吧無限供應</b>（滷肉汁、白飯、麵類、葉菜類、爆米花、冷熱飲）。
     </div>
 
     <div class="highlight-strip">
@@ -201,44 +204,46 @@
     <div class="section-title"><div class="bar"></div><h2>招牌</h2></div>
     <div class="pot-grid">
       <div class="pot"><div><div class="pot-name">招牌麻辣鍋</div></div><div class="pot-price">$160</div></div>
-      <div class="pot rec"><div><div class="pot-name">麻辣臭豆腐鍋 <span class="tag">推薦</span></div><div class="pot-desc">獨家熬煮四川麻辣｜辣香麻</div></div><div class="pot-price">$170</div></div>
+      <div class="pot"><div><div class="pot-name">麻辣臭豆腐鍋</div><div class="pot-desc">獨家熬煮四川麻辣｜辣香麻</div></div><div class="pot-price">$170</div></div>
       <div class="pot"><div><div class="pot-name">金湯酸菜魚鍋</div><div class="pot-desc">特製花椒金湯｜麻香酸甜</div></div><div class="pot-price">$180</div></div>
-      <div class="pot rec"><div><div class="pot-name">麻辣牛奶鍋 <span class="tag">推薦</span></div></div><div class="pot-price">$170</div></div>
+      <div class="pot"><div><div class="pot-name">麻辣牛奶鍋</div></div><div class="pot-price">$170</div></div>
+      <div class="pot"><div><div class="pot-name">蒜香雞湯鍋</div></div><div class="pot-price">$180</div></div>
     </div>
 
     <div class="section-title"><div class="bar"></div><h2>經典</h2></div>
     <div class="pot-grid">
-      <div class="pot rec"><div><div class="pot-name">招牌臭臭鍋 <span class="tag">推薦</span></div><div class="pot-desc">自然發酵臭豆腐｜特調沙茶湯頭</div></div><div class="pot-price">$150</div></div>
+      <div class="pot rec"><div><div class="pot-name">招牌臭臭鍋 <span class="tag hot">熱銷</span></div><div class="pot-desc">自然發酵臭豆腐｜吸汁入味｜特調沙茶湯頭</div></div><div class="pot-price">$150</div></div>
       <div class="pot"><div><div class="pot-name">韓式泡菜鍋</div></div><div class="pot-price">$150</div></div>
-      <div class="pot rec"><div><div class="pot-name">澎湃海鮮鍋 <span class="tag">推薦</span></div></div><div class="pot-price">$210</div></div>
-      <div class="pot"><div><div class="pot-name">台式沙茶鍋</div></div><div class="pot-price">$130</div></div>
+      <div class="pot"><div><div class="pot-name">澎湃海鮮鍋</div></div><div class="pot-price">$210</div></div>
+      <div class="pot rec"><div><div class="pot-name">台式沙茶鍋 <span class="tag hot">熱銷</span></div></div><div class="pot-price">$130</div></div>
     </div>
 
     <div class="section-title"><div class="bar"></div><h2>風味</h2></div>
     <div class="pot-grid">
-      <div class="pot rec"><div><div class="pot-name">東北酸白菜 <span class="tag">推薦</span></div><div class="pot-desc">自然發酵酸白菜｜酸香溫潤</div></div><div class="pot-price">$140</div></div>
+      <div class="pot rec"><div><div class="pot-name">東北酸白菜 <span class="tag hot">熱銷</span></div><div class="pot-desc">自然發酵酸白菜｜酸香溫潤</div></div><div class="pot-price">$140</div></div>
       <div class="pot"><div><div class="pot-name">泰式冬蔭功</div><div class="pot-desc">泰式酸辣加椰漿｜南洋風味</div></div><div class="pot-price">$160</div></div>
-      <div class="pot"><div><div class="pot-name">起司牛奶鍋</div></div><div class="pot-price">$160</div></div>
+      <div class="pot rec"><div><div class="pot-name">起司牛奶鍋 <span class="tag hot">熱銷</span></div></div><div class="pot-price">$160</div></div>
       <div class="pot"><div><div class="pot-name">藥膳十全鍋</div></div><div class="pot-price">$140</div></div>
     </div>
 
     <div class="section-title"><div class="bar"></div><h2>原味</h2></div>
     <div class="pot-grid">
-      <div class="pot rec"><div><div class="pot-name">日式原味鍋 <span class="tag">推薦</span></div></div><div class="pot-price">$130</div></div>
+      <div class="pot rec"><div><div class="pot-name">日式原味鍋 <span class="tag hot">人氣第一</span></div></div><div class="pot-price">$130</div></div>
       <div class="pot"><div><div class="pot-name">原味牛奶鍋</div><div class="pot-desc">純粹牛奶搭配雞骨高湯｜濃醇奶香</div></div><div class="pot-price">$150</div></div>
       <div class="pot"><div><div class="pot-name">海鮮豆腐鍋</div></div><div class="pot-price">$170</div></div>
-      <div class="pot"><div><div class="pot-name">蔬菜素食鍋</div></div><div class="pot-price">$150</div></div>
     </div>
 
-    <div class="section-title"><div class="bar"></div><h2>其他</h2></div>
+    <div class="section-title"><div class="bar"></div><h2>素食</h2></div>
     <div class="pot-grid">
-      <div class="pot"><div><div class="pot-name">蒜頭雞湯鍋</div></div><div class="pot-price">$180</div></div>
+      <div class="pot"><div><div class="pot-name">(素)蔬菜原味鍋</div></div><div class="pot-price">$150</div></div>
+      <div class="pot"><div><div class="pot-name">(素)藥膳十全鍋 <span class="tag new">新品</span></div></div><div class="pot-price">$160</div></div>
+      <div class="pot"><div><div class="pot-name">(素)東北白菜鍋 <span class="tag new">新品</span></div></div><div class="pot-price">$160</div></div>
     </div>
 
     <div class="section-title"><div class="bar"></div><h2>皮蛋系列</h2><small>NEW</small></div>
     <div class="pot-grid">
-      <div class="pot rec"><div><div class="pot-name">麻辣皮蛋香鍋（微辣） <span class="tag">新品</span></div></div><div class="pot-price">$180</div></div>
-      <div class="pot rec"><div><div class="pot-name">臭臭皮蛋香鍋 <span class="tag">新品</span></div></div><div class="pot-price">$170</div></div>
+      <div class="pot rec"><div><div class="pot-name">麻辣皮蛋香鍋（微辣） <span class="tag new">新品</span></div></div><div class="pot-price">$180</div></div>
+      <div class="pot rec"><div><div class="pot-name">臭臭皮蛋香鍋 <span class="tag new">新品</span></div></div><div class="pot-price">$170</div></div>
     </div>
 
     <div class="section-title"><div class="bar"></div><h2>精選吃肉肉</h2><small>現切秤重</small></div>
@@ -251,18 +256,21 @@
       <tr><td>羊肉卷</td><td>$160</td><td>$330</td></tr>
       <tr><td>肥牛</td><td>$130</td><td>$260</td></tr>
       <tr><td>豬五花</td><td>$120</td><td>$240</td></tr>
+      <tr class="special"><td>超大隻去骨大雞腿</td><td colspan="2">$120／隻</td></tr>
     </table>
 
     <div class="section-title"><div class="bar"></div><h2>超值優惠雙拼</h2><small>兩人同行必點</small></div>
     <div class="pot-grid">
-      <div class="pot"><div><div class="pot-name">原肉雙拼大肉盤</div><div class="pot-desc">現切原肉五選二，約9oz</div></div><div class="pot-price">$269</div></div>
-      <div class="pot"><div><div class="pot-name">豪華海陸雙拼餐</div><div class="pot-desc">海鮮拼盤＋現切原肉4oz五選一</div></div><div class="pot-price">$369</div></div>
+      <div class="pot rec"><div><div class="pot-name">原肉雙拼大肉盤 <span class="tag">STEP2可選</span></div><div class="pot-desc">現切原肉五選二，約9oz</div></div><div class="pot-price">$299</div></div>
+      <div class="pot rec"><div><div class="pot-name">豪華海陸雙拼餐 <span class="tag">STEP2可選</span></div><div class="pot-desc">海鮮拼盤＋現切原肉4oz五選一</div></div><div class="pot-price">$389</div></div>
     </div>
 
     <div class="section-title"><div class="bar"></div><h2>生猛海鮮</h2></div>
     <div class="pot-grid">
-      <div class="pot"><div><div class="pot-name">豪華海鮮拼盤</div><div class="pot-desc">白蝦／草蝦／鱸魚片／小花枝／蛤蠣／小干貝／小鮑魚</div></div><div class="pot-price">$250</div></div>
-      <div class="pot"><div><div class="pot-name">生猛小龍蝦</div><div class="pot-desc">凡點豪華海鮮拼盤＋$199即享一隻</div></div><div class="pot-price">$299</div></div>
+      <div class="pot rec"><div><div class="pot-name">豪華海鮮拼盤 <span class="tag">STEP2可選</span></div><div class="pot-desc">白蝦／草蝦／鱸魚片／小花枝／蛤蠣／小干貝／小鮑魚</div></div><div class="pot-price">$269</div></div>
+    </div>
+    <div class="notice" style="margin-top:10px;font-size:12.5px;">
+      <b>雙拼／海鮮拼盤</b>兩人內用時，於 STEP2 選肉或海鮮步驟即可直接點此優惠組合。
     </div>
 
     <div class="section-title"><div class="bar"></div><h2>超殺銅板加購</h2></div>
@@ -297,45 +305,45 @@
     <div class="section-title"><div class="bar"></div><h2>招牌</h2></div>
     <div class="pot-grid">
       <div class="pot"><div><div class="pot-name">麻辣鴨血鍋</div></div><div class="pot-price">$200</div></div>
-      <div class="pot rec"><div><div class="pot-name">麻辣臭豆腐鍋 <span class="tag">推薦</span></div></div><div class="pot-price">$210</div></div>
+      <div class="pot"><div><div class="pot-name">麻辣臭豆腐鍋</div></div><div class="pot-price">$210</div></div>
       <div class="pot"><div><div class="pot-name">麻辣綜合鍋</div></div><div class="pot-price">$210</div></div>
       <div class="pot"><div><div class="pot-name">金湯酸菜魚鍋</div></div><div class="pot-price">$200</div></div>
-      <div class="pot rec"><div><div class="pot-name">麻辣牛奶鍋 <span class="tag">推薦</span></div></div><div class="pot-price">$210</div></div>
+      <div class="pot"><div><div class="pot-name">麻辣牛奶鍋</div></div><div class="pot-price">$210</div></div>
+      <div class="pot"><div><div class="pot-name">蒜香雞湯鍋</div></div><div class="pot-price">$210</div></div>
     </div>
 
     <div class="section-title"><div class="bar"></div><h2>經典</h2></div>
     <div class="pot-grid">
-      <div class="pot rec"><div><div class="pot-name">招牌臭臭鍋 <span class="tag">人氣王</span></div></div><div class="pot-price">$190</div></div>
+      <div class="pot rec"><div><div class="pot-name">招牌臭臭鍋 <span class="tag hot">人氣王</span></div></div><div class="pot-price">$190</div></div>
       <div class="pot"><div><div class="pot-name">韓式泡菜鍋</div></div><div class="pot-price">$190</div></div>
-      <div class="pot rec"><div><div class="pot-name">澎湃海鮮鍋 <span class="tag">人氣王</span></div></div><div class="pot-price">$210</div></div>
-      <div class="pot"><div><div class="pot-name">台式沙茶鍋</div></div><div class="pot-price">$170</div></div>
+      <div class="pot"><div><div class="pot-name">澎湃海鮮鍋</div></div><div class="pot-price">$210</div></div>
+      <div class="pot rec"><div><div class="pot-name">台式沙茶鍋 <span class="tag hot">人氣王</span></div></div><div class="pot-price">$170</div></div>
     </div>
 
     <div class="section-title"><div class="bar"></div><h2>風味</h2></div>
     <div class="pot-grid">
-      <div class="pot"><div><div class="pot-name">東北酸菜白肉鍋</div></div><div class="pot-price">$180</div></div>
+      <div class="pot rec"><div><div class="pot-name">東北酸菜白肉鍋 <span class="tag hot">人氣王</span></div></div><div class="pot-price">$180</div></div>
       <div class="pot"><div><div class="pot-name">泰式冬蔭功鍋</div></div><div class="pot-price">$200</div></div>
-      <div class="pot"><div><div class="pot-name">起司牛奶鍋</div></div><div class="pot-price">$195</div></div>
-      <div class="pot rec"><div><div class="pot-name">藥膳鍋 <span class="tag">人氣必點</span></div></div><div class="pot-price">$180</div></div>
+      <div class="pot rec"><div><div class="pot-name">起司牛奶鍋 <span class="tag hot">人氣王</span></div></div><div class="pot-price">$195</div></div>
+      <div class="pot"><div><div class="pot-name">藥膳鍋</div></div><div class="pot-price">$180</div></div>
     </div>
 
     <div class="section-title"><div class="bar"></div><h2>原味</h2></div>
     <div class="pot-grid">
-      <div class="pot"><div><div class="pot-name">日式原味鍋</div></div><div class="pot-price">$170</div></div>
+      <div class="pot rec"><div><div class="pot-name">日式原味鍋 <span class="tag hot">人氣第一</span></div></div><div class="pot-price">$170</div></div>
       <div class="pot"><div><div class="pot-name">原味牛奶鍋</div></div><div class="pot-price">$190</div></div>
       <div class="pot"><div><div class="pot-name">海鮮豆腐鍋</div></div><div class="pot-price">$180</div></div>
-      <div class="pot"><div><div class="pot-name">蔬菜素食鍋</div></div><div class="pot-price">$160</div></div>
     </div>
 
-    <div class="section-title"><div class="bar"></div><h2>其他</h2></div>
+    <div class="section-title"><div class="bar"></div><h2>素食</h2></div>
     <div class="pot-grid">
-      <div class="pot"><div><div class="pot-name">蒜頭雞湯鍋</div></div><div class="pot-price">$210</div></div>
+      <div class="pot"><div><div class="pot-name">(素)蔬菜原味鍋</div></div><div class="pot-price">$160</div></div>
     </div>
 
     <div class="section-title"><div class="bar"></div><h2>皮蛋系列</h2><small>NEW</small></div>
     <div class="pot-grid">
-      <div class="pot rec"><div><div class="pot-name">麻辣皮蛋香鍋（微辣） <span class="tag">新品</span></div></div><div class="pot-price">$200</div></div>
-      <div class="pot rec"><div><div class="pot-name">臭臭皮蛋香鍋 <span class="tag">新品</span></div></div><div class="pot-price">$190</div></div>
+      <div class="pot rec"><div><div class="pot-name">麻辣皮蛋香鍋（微辣） <span class="tag new">新品</span></div></div><div class="pot-price">$200</div></div>
+      <div class="pot rec"><div><div class="pot-name">臭臭皮蛋香鍋 <span class="tag new">新品</span></div></div><div class="pot-price">$190</div></div>
     </div>
 
     <div class="notice" style="margin-top:10px;font-size:12.5px;">火鍋內的肉品均為豬肉，換牛肉需加價 <b>$10</b>。</div>
